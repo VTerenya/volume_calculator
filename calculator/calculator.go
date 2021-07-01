@@ -1,3 +1,5 @@
+//Package has code, which describe
+//volume calculator.
 package calculator
 
 import (
@@ -15,6 +17,7 @@ type Calculator struct {
 	hieght decimal.Decimal
 }
 
+//Volume is the implementation of counting the volume of all shapes.
 func (calc Calculator) Volume() decimal.Decimal {
 	switch calc.shape {
 	case "sphere":
@@ -29,10 +32,11 @@ func (calc Calculator) Volume() decimal.Decimal {
 	default:
 		fmt.Println("Error! Incorrect input!")
 		os.Exit(1)
-		return decimal.NewFromFloat(-1)
+		return decimal.NewFromFloat(1)
 	}
 }
 
+//NewCalc is constructor.
 func NewCalc(shape string, radius, length, width, hieght decimal.Decimal) *Calculator {
 	return &Calculator{shape: shape, radius: radius, length: length, width: width, hieght: hieght}
 }
