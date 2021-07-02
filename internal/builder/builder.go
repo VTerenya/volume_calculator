@@ -8,7 +8,6 @@ import (
 )
 
 type Builder struct {
-
 }
 
 func (b Builder) BuildSphere(radius decimal.Decimal) *shapes.Sphere {
