@@ -3,10 +3,10 @@ package main
 
 import (
 	"fmt"
-	"volume_calculator/handle"
+	"volume_calculator/cli"
 )
 
 func main() {
-	calc := handle.Handle()
-	fmt.Println(calc.Volume())
+	calc := cli.Handle()
+	fmt.Println(calc.CalcVolume())
 }

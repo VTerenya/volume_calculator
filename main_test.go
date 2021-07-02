@@ -36,7 +36,7 @@ func Test(t *testing.T) {
 	for _, testCase := range testTable {
 		var result decimal.Decimal
 		result = calculator.NewCalc(testCase.shape,testCase.radius,testCase.length,
-			testCase.width, testCase.hieght).Volume()
+			testCase.width, testCase.hieght).CalcVolume()
 		if result.Equals(testCase.expected){
 			t.Errorf("Error!\n Expected : %#v;\nResult: %#v\n", testCase.expected, result)
 		}
