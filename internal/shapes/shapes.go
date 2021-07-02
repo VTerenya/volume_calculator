@@ -15,30 +15,48 @@ type Volumer interface {
 
 // Sphere is struct, which has only radius.
 type Sphere struct {
-	Radius decimal.Decimal
+	radius decimal.Decimal
+}
+
+func (s *Sphere) New(radius decimal.Decimal) *Sphere {
+	return &Sphere{
+		radius,
+	}
 }
 
 // Pyramid is struct, which has length, width, hieght
 type Pyramid struct {
-	Length, Width, Hieght decimal.Decimal
+	length, width, hieght decimal.Decimal
+}
+
+func (p *Pyramid) New(length, width, hieght decimal.Decimal) *Pyramid {
+	return &Pyramid{
+		length, width, hieght,
+	}
 }
 
 // Cylinder is struct, which has radius, hieght
 type Cylinder struct {
-	Radius, Hieght decimal.Decimal
+	radius, hieght decimal.Decimal
+}
+
+func (c *Cylinder) New(radius, hieght decimal.Decimal) *Cylinder {
+	return &Cylinder{
+		radius, hieght,
+	}
 }
 
 // CalculateVolume calculateVolume is realization calculateVolume() for Sphere
 func (Sphere *Sphere) CalculateVolume() decimal.Decimal {
-	return pi.Mul(decimal.NewFromFloat(4.0 / 3)).Mul(Sphere.Radius.Pow(decimal.NewFromFloat(3.0)))
+	return pi.Mul(decimal.NewFromFloat(4.0 / 3)).Mul(Sphere.radius.Pow(decimal.NewFromFloat(3.0)))
 }
 
 // CalculateVolume calculateVolume is realization calculateVolume() for Pyramid
 func (Pyramid *Pyramid) CalculateVolume() decimal.Decimal {
-	return decimal.NewFromFloat(1.0 / 3).Mul(Pyramid.Hieght).Mul(Pyramid.Length).Mul(Pyramid.Width)
+	return decimal.NewFromFloat(1.0 / 3).Mul(Pyramid.hieght).Mul(Pyramid.length).Mul(Pyramid.width)
 }
 
 // CalculateVolume calculateVolume is realization calculateVolume() for Cylinder
 func (Cylinder *Cylinder) CalculateVolume() decimal.Decimal {
-	return Cylinder.Hieght.Mul(pi.Mul(Cylinder.Radius.Pow(decimal.NewFromFloat(2.0))))
+	return Cylinder.hieght.Mul(pi.Mul(Cylinder.radius.Pow(decimal.NewFromFloat(2.0))))
 }

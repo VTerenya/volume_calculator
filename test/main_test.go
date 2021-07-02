@@ -1,10 +1,10 @@
-package main
+package test
 
 
 import (
 	"github.com/shopspring/decimal"
 	"testing"
-	"volume_calculator/calculator"
+	"volume_calculator/internal/calculator"
 )
 
 func Test(t *testing.T) {
@@ -35,8 +35,8 @@ func Test(t *testing.T) {
 
 	for _, testCase := range testTable {
 		var result decimal.Decimal
-		result = calculator.NewCalc(testCase.shape,testCase.radius,testCase.length,
-			testCase.width, testCase.hieght).CalcVolume()
+		result = calculator.Calculator{}.Calculate(testCase.shape,testCase.radius,testCase.length,
+			testCase.width, testCase.hieght)
 		if result.Equals(testCase.expected){
 			t.Errorf("Error!\n Expected : %#v;\nResult: %#v\n", testCase.expected, result)
 		}

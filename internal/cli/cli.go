@@ -5,19 +5,18 @@ package cli
 import (
 	"flag"
 	"github.com/shopspring/decimal"
-	"volume_calculator/calculator"
 )
 
 type Parameters struct{
-	shape string
-	radius, length, width, hieght decimal.Decimal
+	Shape string
+	Radius, Length, Width, Hieght decimal.Decimal
 }
 
 func newParameters(shape string, radius, length, width, hieght decimal.Decimal) *Parameters {
-	return &Parameters{shape: shape, radius: radius,length: length,width: width,hieght: hieght}
+	return &Parameters{Shape: shape, Radius: radius,Length: length, Width: width, Hieght: hieght}
 }
 
-func load() *Parameters {
+func Load() *Parameters {
 	var shape string
 	flag.StringVar(&shape, "shape", "string", "a string")
 	radius, _ := decimal.NewFromString(*flag.String("radius", "", "a float64"))
@@ -29,8 +28,8 @@ func load() *Parameters {
 }
 
 
-func Handle() *calculator.Calculator{
-	param := load()
-	calc := calculator.NewCalc(param.shape, param.radius, param.length, param.width, param.hieght)
-	return calc
-}
+//func Handle() *calculator.Calculator{
+//	param := load()
+//	calc := calculator.NewCalc(param.shape, param.radius, param.length, param.width, param.hieght)
+//	return calc
+//}
