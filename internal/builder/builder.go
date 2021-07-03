@@ -46,16 +46,13 @@ func (builder Builder) getCylinder() shapes.Cylinder {
 }
 
 func (b Builder) buildSphere(radius decimal.Decimal) *shapes.Sphere {
-	sphere := shapes.Sphere{}
-	return sphere.NewSphere(radius)
+	return shapes.NewSphere(radius)
 }
 
 func (b Builder) buildPyramid(length, width, hieght decimal.Decimal) *shapes.Pyramid {
-	pyramid := shapes.Pyramid{}
-	return pyramid.NewPyramid(length, width, hieght)
+	return shapes.NewPyramid(length, width, hieght)
 }
 
 func (b Builder) buildCylinder(hieght, radius decimal.Decimal) *shapes.Cylinder {
-	cylinder := shapes.Cylinder{}
-	return cylinder.NewCylinder(radius, hieght)
+	return shapes.NewCylinder(radius, hieght)
 }

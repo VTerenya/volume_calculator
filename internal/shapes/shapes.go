@@ -18,7 +18,7 @@ type Sphere struct {
 	radius decimal.Decimal
 }
 
-func (s *Sphere) NewSphere(radius decimal.Decimal) *Sphere {
+func NewSphere(radius decimal.Decimal) *Sphere {
 	return &Sphere{
 		radius,
 	}
@@ -29,7 +29,7 @@ type Pyramid struct {
 	length, width, hieght decimal.Decimal
 }
 
-func (p *Pyramid) NewPyramid(length, width, hieght decimal.Decimal) *Pyramid {
+func  NewPyramid(length, width, hieght decimal.Decimal) *Pyramid {
 	return &Pyramid{
 		length, width, hieght,
 	}
@@ -40,7 +40,7 @@ type Cylinder struct {
 	radius, hieght decimal.Decimal
 }
 
-func (c *Cylinder) NewCylinder(radius, hieght decimal.Decimal) *Cylinder {
+func NewCylinder(radius, hieght decimal.Decimal) *Cylinder {
 	return &Cylinder{
 		radius, hieght,
 	}
