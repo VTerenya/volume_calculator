@@ -9,7 +9,7 @@ import (
 
 func main() {
 	cliParams := cli.Load()
-	volume := calculator.Calculator{}.Calculate(cliParams.Shape, cliParams.Radius, cliParams.Length,
+	volume := calculator.Calculate(cliParams.Shape, cliParams.Radius, cliParams.Length,
 		cliParams.Width, cliParams.Hieght)
 	fmt.Println(volume)
 }

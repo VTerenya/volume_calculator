@@ -18,11 +18,17 @@ func newParameters(shape string, radius, length, width, hieght decimal.Decimal) 
 
 func Load() *Parameters {
 	var shape string
-	flag.StringVar(&shape, "shape", "string", "a string")
-	radius, _ := decimal.NewFromString(*flag.String("radius", "", "a float64"))
-	length, _ := decimal.NewFromString(*flag.String("length", "", "a float64"))
-	width, _ := decimal.NewFromString(*flag.String("width", "", "a float64"))
-	hieght, _ := decimal.NewFromString(*flag.String("hieght", "", "a float64"))
+	flag.StringVar(&shape, "shape", "", "a string")
+	var stringRadius, stringLength, stringWidth, stringHieght string
+	flag.StringVar(&stringRadius, "radius", "", "a string")
+	flag.StringVar(&stringLength, "length", "", "a string")
+	flag.StringVar(&stringWidth, "width", "", "a string")
+	flag.StringVar(&stringHieght, "hieght", "", "a string")
 	flag.Parse()
+
+	radius, _ := decimal.NewFromString(stringRadius)
+	length, _ := decimal.NewFromString(stringLength)
+	width, _ := decimal.NewFromString(stringWidth)
+	hieght, _ := decimal.NewFromString(stringHieght)
 	return newParameters(shape, radius, length, width, hieght)
 }

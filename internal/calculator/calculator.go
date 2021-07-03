@@ -7,20 +7,9 @@ import (
 	"volume_calculator/internal/builder"
 )
 
-type Calculator struct {
-}
-
 // Calculate is the implementation of counting the volume of all shapes.
-func (calc Calculator) Calculate(shape string, radius, length, width, hieght decimal.Decimal) decimal.Decimal {
-	var volume decimal.Decimal
-	builder := builder.Builder{}
-	switch shape {
-	case "sphere":
-		volume = builder.BuildSphere(radius).CalculateVolume()
-	case "pyramid":
-		volume = builder.BuildPyramid(length, width, hieght).CalculateVolume()
-	case "cylinder":
-		volume = builder.BuildCylinder(hieght, radius).CalculateVolume()
-	}
-	return volume
+func Calculate(shape string, radius, length, width, hieght decimal.Decimal) decimal.Decimal {
+	b := builder.NewBuilder(shape, radius, length, width, hieght)
+	sh := b.BuildShape()
+	return sh.CalculateVolume()
 }
