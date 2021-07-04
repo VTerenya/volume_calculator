@@ -8,10 +8,6 @@ import (
 )
 
 type Builder struct {
-	sphere   shapes.Sphere
-	pyramid  shapes.Pyramid
-	cylinder shapes.Cylinder
-
 	shape                         string
 	radius, length, width, hieght decimal.Decimal
 }
@@ -31,18 +27,6 @@ func (builder Builder) BuildShape() shapes.Volumer{
 		sh = builder.buildCylinder(builder.hieght, builder.radius)
 	}
 	return sh
-}
-
-func (builder Builder) getSphere() shapes.Sphere {
-	return builder.sphere
-}
-
-func (builder Builder) getPyramid() shapes.Pyramid {
-	return builder.pyramid
-}
-
-func (builder Builder) getCylinder() shapes.Cylinder {
-	return builder.cylinder
 }
 
 func (b Builder) buildSphere(radius decimal.Decimal) *shapes.Sphere {
