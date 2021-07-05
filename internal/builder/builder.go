@@ -3,6 +3,7 @@
 package builder
 
 import (
+	"errors"
 	"github.com/shopspring/decimal"
 	"volume_calculator/internal/shapes"
 )
@@ -16,7 +17,7 @@ func NewBuilder(shape string, radius, length, width, hieght decimal.Decimal) *Bu
 	return &Builder{shape: shape, radius: radius, length: length, width: width, hieght: hieght}
 }
 
-func (builder Builder) BuildShape() shapes.Volumer{
+func (builder Builder) BuildShape() (shapes.Volumer, error){
 	var sh shapes.Volumer
 	switch builder.shape {
 	case "sphere":
@@ -25,8 +26,10 @@ func (builder Builder) BuildShape() shapes.Volumer{
 		sh = builder.buildPyramid(builder.length, builder.width, builder.hieght)
 	case "cylinder":
 		sh = builder.buildCylinder(builder.hieght, builder.radius)
+	default:
+		return nil, errors.New("Builder doesn't know this shape!")
 	}
-	return sh
+	return sh,nil
 }
 
 func (b Builder) buildSphere(radius decimal.Decimal) *shapes.Sphere {
