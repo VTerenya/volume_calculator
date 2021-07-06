@@ -13,7 +13,6 @@ func Calculate(shape string, radius, length, width, hieght decimal.Decimal) (dec
 	sh, err := b.BuildShape()
 	if err != nil {
 		return decimal.Decimal{}, err
-	} else {
-		return sh.CalculateVolume(), nil
 	}
+	return sh.CalculateVolume(), nil
 }
