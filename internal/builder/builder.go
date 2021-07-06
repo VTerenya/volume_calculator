@@ -17,7 +17,7 @@ func NewBuilder(shape string, radius, length, width, hieght decimal.Decimal) *Bu
 	return &Builder{shape: shape, radius: radius, length: length, width: width, hieght: hieght}
 }
 
-func (builder Builder) BuildShape() (shapes.Volumer, error){
+func (builder Builder) BuildShape() (shapes.Volumer, error) {
 	var sh shapes.Volumer
 	switch builder.shape {
 	case "sphere":
@@ -29,7 +29,7 @@ func (builder Builder) BuildShape() (shapes.Volumer, error){
 	default:
 		return nil, errors.New("Builder doesn't know this shape!")
 	}
-	return sh,nil
+	return sh, nil
 }
 
 func (b Builder) buildSphere(radius decimal.Decimal) *shapes.Sphere {

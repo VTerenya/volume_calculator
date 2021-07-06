@@ -18,7 +18,6 @@ type Sphere struct {
 	radius decimal.Decimal
 }
 
-
 func NewSphere(radius decimal.Decimal) *Sphere {
 	return &Sphere{
 		radius,
@@ -30,7 +29,7 @@ type Pyramid struct {
 	length, width, hieght decimal.Decimal
 }
 
-func  NewPyramid(length, width, hieght decimal.Decimal) *Pyramid {
+func NewPyramid(length, width, hieght decimal.Decimal) *Pyramid {
 	return &Pyramid{
 		length, width, hieght,
 	}

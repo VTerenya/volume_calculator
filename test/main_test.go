@@ -1,7 +1,6 @@
 package test
 
 import (
-
 	"github.com/VTerenya/volume_calculator/internal/calculator"
 	"github.com/shopspring/decimal"
 	"testing"
@@ -34,7 +33,7 @@ func Test(t *testing.T) {
 	}
 
 	for _, testCase := range testTable {
-		result,_ := calculator.Calculate(testCase.shape, testCase.radius, testCase.length,
+		result, _ := calculator.Calculate(testCase.shape, testCase.radius, testCase.length,
 			testCase.width, testCase.hieght)
 		if result.Equals(testCase.expected) {
 			t.Errorf("Error!\n Expected : %#v;\nResult: %#v\n", testCase.expected, result)
