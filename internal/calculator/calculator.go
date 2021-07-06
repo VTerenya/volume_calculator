@@ -3,17 +3,18 @@
 package calculator
 
 import (
-	"fmt"
+	"github.com/VTerenya/volume_calculator/internal/builder"
 	"github.com/shopspring/decimal"
-	"volume_calculator/internal/builder"
+
 )
 
 // Calculate is the implementation of counting the volume of all shapes.
-func Calculate(shape string, radius, length, width, hieght decimal.Decimal) decimal.Decimal {
+func Calculate(shape string, radius, length, width, hieght decimal.Decimal) (decimal.Decimal,error) {
 	b := builder.NewBuilder(shape, radius, length, width, hieght)
 	sh, err := b.BuildShape()
 	if err != nil{
-		fmt.Println(err)
+		return decimal.Decimal{},err
+	}else{
+		return sh.CalculateVolume(),nil
 	}
-	return sh.CalculateVolume()
 }

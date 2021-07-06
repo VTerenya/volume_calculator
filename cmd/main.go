@@ -3,13 +3,17 @@ package main
 
 import (
 	"fmt"
-	"volume_calculator/internal/calculator"
-	"volume_calculator/internal/cli"
+	"github.com/VTerenya/volume_calculator/internal/calculator"
+	"github.com/VTerenya/volume_calculator/internal/cli"
 )
 
 func main() {
 	cliParams := cli.Load()
-	volume := calculator.Calculate(cliParams.Shape, cliParams.Radius, cliParams.Length,
+	volume, err := calculator.Calculate(cliParams.Shape, cliParams.Radius, cliParams.Length,
 		cliParams.Width, cliParams.Hieght)
-	fmt.Println(volume)
+	if err == nil {
+		fmt.Println(volume)
+	} else {
+		fmt.Printf("Error: %v", err)
+	}
 }

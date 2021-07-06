@@ -4,8 +4,8 @@ package builder
 
 import (
 	"errors"
+	"github.com/VTerenya/volume_calculator/internal/shapes"
 	"github.com/shopspring/decimal"
-	"volume_calculator/internal/shapes"
 )
 
 type Builder struct {

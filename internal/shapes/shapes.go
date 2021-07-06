@@ -1,4 +1,4 @@
-//Package has all shapes, which
+//Package shapes has all shapes, which
 //calculator can count calculateVolume.
 package shapes
 
