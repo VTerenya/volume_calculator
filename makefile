@@ -1,13 +1,15 @@
-f:
+.PHONY: test
+
+format:
 	go fmt ./...
 
-b:
+build:
 	go build ./cmd
 
-l:
-	golangci-lint run ./... > lint.txt
+lint:
+	golangci-lint run -c ./.golangci.yml > lint.txt
 
-t:
+test:
 	go test ./...
 
-all:  f l b t
+all:  format lint build test
